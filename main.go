@@ -4,10 +4,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/alduh-co/presence-api/config"
-	"github.com/alduh-co/presence-api/infrastructure"
-	pb "github.com/alduh-co/presence-api/proto/pb"
-	"github.com/alduh-co/presence-api/servers"
+	"github.com/echo-marche/presence-api/config"
+	"github.com/echo-marche/presence-api/infrastructure"
+	pb "github.com/echo-marche/presence-api/proto/pb"
+	"github.com/echo-marche/presence-api/servers"
 	"google.golang.org/grpc"
 )
 

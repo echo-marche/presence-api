@@ -3,8 +3,8 @@ package servers
 import (
 	"context"
 
-	"github.com/alduh-co/presence-api/models"
-	pb "github.com/alduh-co/presence-api/proto/pb"
+	"github.com/echo-marche/presence-api/models"
+	pb "github.com/echo-marche/presence-api/proto/pb"
 	"github.com/jinzhu/gorm"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

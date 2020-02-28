@@ -1,4 +1,4 @@
-module github.com/alduh-co/presence-api
+module github.com/echo-marche/presence-api
 
 go 1.13
 

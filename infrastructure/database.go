@@ -1,7 +1,7 @@
 package infrastructure
 
 import (
-	"github.com/alduh-co/presence-api/config"
+	"github.com/echo-marche/presence-api/config"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
