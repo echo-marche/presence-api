@@ -8,12 +8,12 @@ type DBConfig struct {
 	Name     string
 }
 
-func InitSounDiverseDBConfig() DBConfig {
+func InitNicheFarmDBConfig() DBConfig {
 	return DBConfig{
-		Host:     GetEnv("SOUNDIVERSE_DB_HOST"),
-		Port:     GetEnv("SOUNDIVERSE_DB_PORT"),
-		User:     GetEnv("SOUNDIVERSE_DB_USER"),
-		Password: GetEnv("SOUNDIVERSE_DB_PASSWORD"),
-		Name:     GetEnv("SOUNDIVERSE_DB_NAME"),
+		Host:     GetEnv("NICHE_FARM_DB_HOST"),
+		Port:     GetEnv("NICHE_FARM_DB_PORT"),
+		User:     GetEnv("NICHE_FARM_DB_USER"),
+		Password: GetEnv("NICHE_FARM_DB_PASSWORD"),
+		Name:     GetEnv("NICHE_FARM_DB_NAME"),
 	}
 }

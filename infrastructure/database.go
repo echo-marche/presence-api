@@ -7,8 +7,14 @@ import (
 )
 
 func NewDb() *gorm.DB {
-	// TODO SounDiverseDBに接続→パラメータにより接続先を変更
-	dbConfig := config.InitSounDiverseDBConfig()
+	// DBに接続→パラメータにより接続先を変更
+	dbConfig := config.DBConfig{}
+	switch config.GetEnv("SYSTEM_CODE") {
+	case "niche-farm":
+		dbConfig = config.InitNicheFarmDBConfig()
+	default:
+		panic("db config is nothing!")
+	}
 
 	db, err := gorm.Open("mysql", dbConfig.User+":"+dbConfig.Password+"@("+dbConfig.Host+":"+dbConfig.Port+")/"+dbConfig.Name+"?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
