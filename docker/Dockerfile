@@ -7,8 +7,8 @@ COPY . .
 
 RUN apk add --no-cache git bash && \
  go build -o app && \
- go get gopkg.in/urfave/cli.v2@master && \
- go get github.com/oxequa/realize
+ go get github.com/urfave/cli/v2 && \
+ GO111MODULE=off go get github.com/oxequa/realize
 
 # 本番用
 FROM alpine
