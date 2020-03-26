@@ -10,8 +10,8 @@ func NewDb() *gorm.DB {
 	// DBに接続→パラメータにより接続先を変更
 	dbConfig := config.DBConfig{}
 	switch config.GetEnv("SYSTEM_CODE") {
-	case "niche-farm":
-		dbConfig = config.InitNicheFarmDBConfig()
+	case "nicheye":
+		dbConfig = config.InitNicheyeDBConfig()
 	default:
 		panic("db config is nothing!")
 	}
