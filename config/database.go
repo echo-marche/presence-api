@@ -8,12 +8,12 @@ type DBConfig struct {
 	Name     string
 }
 
-func InitNicheyeDBConfig() DBConfig {
+func InitDevCompassDBConfig() DBConfig {
 	return DBConfig{
-		Host:     GetEnv("NICHEYE_DB_HOST"),
-		Port:     GetEnv("NICHEYE_DB_PORT"),
-		User:     GetEnv("NICHEYE_DB_USER"),
-		Password: GetEnv("NICHEYE_DB_PASSWORD"),
-		Name:     GetEnv("NICHEYE_DB_NAME"),
+		Host:     GetEnv("DEV_COMPASS_DB_HOST"),
+		Port:     GetEnv("DEV_COMPASS_DB_PORT"),
+		User:     GetEnv("DEV_COMPASS_DB_USER"),
+		Password: GetEnv("DEV_COMPASS_DB_PASSWORD"),
+		Name:     GetEnv("DEV_COMPASS_DB_NAME"),
 	}
 }
