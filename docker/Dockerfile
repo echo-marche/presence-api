@@ -1,4 +1,4 @@
-# build用兼開発用
+# build用
 FROM golang:1.13-alpine as build
 
 WORKDIR /go/app
@@ -6,9 +6,7 @@ WORKDIR /go/app
 COPY . .
 
 RUN apk add --no-cache git bash && \
- go build -o app && \
- go get github.com/urfave/cli/v2 && \
- GO111MODULE=off go get github.com/oxequa/realize
+ go build -o app
 
 # 本番用
 FROM alpine
