@@ -8,12 +8,12 @@ type DBConfig struct {
 	Name     string
 }
 
-func InitDevCompassDBConfig() DBConfig {
+func InitHackTechTipsDBConfig() DBConfig {
 	return DBConfig{
-		Host:     GetEnv("DEV_COMPASS_DB_HOST"),
-		Port:     GetEnv("DEV_COMPASS_DB_PORT"),
-		User:     GetEnv("DEV_COMPASS_DB_USER"),
-		Password: GetEnv("DEV_COMPASS_DB_PASSWORD"),
-		Name:     GetEnv("DEV_COMPASS_DB_NAME"),
+		Host:     GetEnv("HACK_TECH_TIPS_DB_HOST"),
+		Port:     GetEnv("HACK_TECH_TIPS_DB_PORT"),
+		User:     GetEnv("HACK_TECH_TIPS_DB_USER"),
+		Password: GetEnv("HACK_TECH_TIPS_DB_PASSWORD"),
+		Name:     GetEnv("HACK_TECH_TIPS_DB_NAME"),
 	}
 }
