@@ -1,5 +1,6 @@
 syntax = "proto3";
 package presence;
+option go_package = ".;presence";
 
 service Presence {
   rpc GetUserList (UserListRequest) returns (UserListResponse) {}
