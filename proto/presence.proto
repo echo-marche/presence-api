@@ -1,6 +1,7 @@
 syntax = "proto3";
 package presence;
 option go_package = ".;presence";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 service Presence {
   rpc GetUserList (UserListRequest) returns (UserListResponse) {}
@@ -8,7 +9,7 @@ service Presence {
 }
 
 message UserListRequest {
-  string system_code = 1;
+  string system_code = 1 [(validator.field) = {regex: "^([ABZ])?$"}];
 }
 
 message UserRequest {

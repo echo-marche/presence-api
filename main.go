@@ -8,6 +8,8 @@ import (
 	"github.com/echo-marche/presence-api/infrastructure"
 	pb "github.com/echo-marche/presence-api/proto/pb"
 	"github.com/echo-marche/presence-api/servers"
+	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
 	"google.golang.org/grpc"
 )
 
@@ -21,7 +23,14 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	server := grpc.NewServer()
+	server := grpc.NewServer(
+		grpc.StreamInterceptor(grpc_middleware.ChainStreamServer(
+			grpc_validator.StreamServerInterceptor(),
+		)),
+		grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+			grpc_validator.UnaryServerInterceptor(),
+		)),
+	)
 	presenceServer := &servers.PresenceServer{Db: db}
 	pb.RegisterPresenceServer(server, presenceServer)
 	if err := server.Serve(listenPort); err != nil {
