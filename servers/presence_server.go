@@ -2,6 +2,7 @@ package servers
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/echo-marche/presence-api/models"
 	pb "github.com/echo-marche/presence-api/proto/pb"
@@ -30,4 +31,10 @@ func (server *PresenceServer) GetUserList(ctx context.Context, req *pb.UserListR
 func (server *PresenceServer) GetUser(ctx context.Context, req *pb.UserRequest) (*pb.UserResponse, error) {
 	// systemCode := req.GetSystemCode
 	return &pb.UserResponse{Name: "test1", Email: "test1@gmail.com"}, nil
+}
+
+func (server *PresenceServer) UserRegistration(ctx context.Context, req *pb.UserRegistrationRequest) (*pb.StatusResponse, error) {
+	fmt.Println(req)
+	// DB登録
+	return &pb.StatusResponse{StatusCode: "ok presence!"}, nil
 }

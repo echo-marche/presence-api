@@ -35,7 +35,7 @@ type UserListRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SystemCode string `protobuf:"bytes,1,opt,name=system_code,json=systemCode,proto3" json:"system_code,omitempty"`
+	StatusCode string `protobuf:"bytes,1,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
 }
 
 func (x *UserListRequest) Reset() {
@@ -70,9 +70,9 @@ func (*UserListRequest) Descriptor() ([]byte, []int) {
 	return file_presence_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *UserListRequest) GetSystemCode() string {
+func (x *UserListRequest) GetStatusCode() string {
 	if x != nil {
-		return x.SystemCode
+		return x.StatusCode
 	}
 	return ""
 }
@@ -82,7 +82,7 @@ type UserRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	SystemCode string `protobuf:"bytes,1,opt,name=system_code,json=systemCode,proto3" json:"system_code,omitempty"`
+	StatusCode string `protobuf:"bytes,1,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
 	UserId     string `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 }
 
@@ -118,9 +118,9 @@ func (*UserRequest) Descriptor() ([]byte, []int) {
 	return file_presence_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *UserRequest) GetSystemCode() string {
+func (x *UserRequest) GetStatusCode() string {
 	if x != nil {
-		return x.SystemCode
+		return x.StatusCode
 	}
 	return ""
 }
@@ -128,6 +128,61 @@ func (x *UserRequest) GetSystemCode() string {
 func (x *UserRequest) GetUserId() string {
 	if x != nil {
 		return x.UserId
+	}
+	return ""
+}
+
+type UserRegistrationRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email    string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+}
+
+func (x *UserRegistrationRequest) Reset() {
+	*x = UserRegistrationRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_presence_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UserRegistrationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserRegistrationRequest) ProtoMessage() {}
+
+func (x *UserRegistrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_presence_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserRegistrationRequest.ProtoReflect.Descriptor instead.
+func (*UserRegistrationRequest) Descriptor() ([]byte, []int) {
+	return file_presence_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *UserRegistrationRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UserRegistrationRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
 	}
 	return ""
 }
@@ -143,7 +198,7 @@ type UserListResponse struct {
 func (x *UserListResponse) Reset() {
 	*x = UserListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_presence_proto_msgTypes[2]
+		mi := &file_presence_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -156,7 +211,7 @@ func (x *UserListResponse) String() string {
 func (*UserListResponse) ProtoMessage() {}
 
 func (x *UserListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_presence_proto_msgTypes[2]
+	mi := &file_presence_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -169,7 +224,7 @@ func (x *UserListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserListResponse.ProtoReflect.Descriptor instead.
 func (*UserListResponse) Descriptor() ([]byte, []int) {
-	return file_presence_proto_rawDescGZIP(), []int{2}
+	return file_presence_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *UserListResponse) GetUsers() []*UserResponse {
@@ -191,7 +246,7 @@ type UserResponse struct {
 func (x *UserResponse) Reset() {
 	*x = UserResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_presence_proto_msgTypes[3]
+		mi := &file_presence_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -204,7 +259,7 @@ func (x *UserResponse) String() string {
 func (*UserResponse) ProtoMessage() {}
 
 func (x *UserResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_presence_proto_msgTypes[3]
+	mi := &file_presence_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +272,7 @@ func (x *UserResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserResponse.ProtoReflect.Descriptor instead.
 func (*UserResponse) Descriptor() ([]byte, []int) {
-	return file_presence_proto_rawDescGZIP(), []int{3}
+	return file_presence_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UserResponse) GetName() string {
@@ -234,6 +289,53 @@ func (x *UserResponse) GetEmail() string {
 	return ""
 }
 
+type StatusResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StatusCode string `protobuf:"bytes,1,opt,name=status_code,json=statusCode,proto3" json:"status_code,omitempty"`
+}
+
+func (x *StatusResponse) Reset() {
+	*x = StatusResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_presence_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StatusResponse) ProtoMessage() {}
+
+func (x *StatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_presence_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StatusResponse.ProtoReflect.Descriptor instead.
+func (*StatusResponse) Descriptor() ([]byte, []int) {
+	return file_presence_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *StatusResponse) GetStatusCode() string {
+	if x != nil {
+		return x.StatusCode
+	}
+	return ""
+}
+
 var File_presence_proto protoreflect.FileDescriptor
 
 var file_presence_proto_rawDesc = []byte{
@@ -243,22 +345,30 @@ var file_presence_proto_rawDesc = []byte{
 	0x6f, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2d, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f,
 	0x72, 0x73, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x22, 0x44, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x31, 0x0a, 0x0b, 0x73, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x5f,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x31, 0x0a, 0x0b, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5f,
 	0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x10, 0xe2, 0xdf, 0x1f, 0x0c,
-	0x0a, 0x0a, 0x5e, 0x28, 0x5b, 0x41, 0x42, 0x5a, 0x5d, 0x29, 0x3f, 0x24, 0x52, 0x0a, 0x73, 0x79,
-	0x73, 0x74, 0x65, 0x6d, 0x43, 0x6f, 0x64, 0x65, 0x22, 0x47, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x79, 0x73, 0x74, 0x65,
-	0x6d, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x79,
-	0x73, 0x74, 0x65, 0x6d, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
+	0x0a, 0x0a, 0x5e, 0x28, 0x5b, 0x41, 0x42, 0x5a, 0x5d, 0x29, 0x3f, 0x24, 0x52, 0x0a, 0x73, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x43, 0x6f, 0x64, 0x65, 0x22, 0x47, 0x0a, 0x0b, 0x55, 0x73, 0x65, 0x72,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
 	0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
-	0x64, 0x22, 0x40, 0x0a, 0x10, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x2e,
-	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x05, 0x75, 0x73,
-	0x65, 0x72, 0x73, 0x22, 0x38, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x32, 0x8e, 0x01,
+	0x64, 0x22, 0x4b, 0x0a, 0x17, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x72,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05,
+	0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61,
+	0x69, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22, 0x40,
+	0x0a, 0x10, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x2c, 0x0a, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x16, 0x2e, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65,
+	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x05, 0x75, 0x73, 0x65, 0x72, 0x73,
+	0x22, 0x38, 0x0a, 0x0c, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
+	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x31, 0x0a, 0x0e, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1f, 0x0a, 0x0b,
+	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x5f, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0a, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x43, 0x6f, 0x64, 0x65, 0x32, 0xe1, 0x01,
 	0x0a, 0x08, 0x50, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x12, 0x46, 0x0a, 0x0b, 0x47, 0x65,
 	0x74, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x19, 0x2e, 0x70, 0x72, 0x65, 0x73,
 	0x65, 0x6e, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71,
@@ -267,9 +377,14 @@ var file_presence_proto_rawDesc = []byte{
 	0x22, 0x00, 0x12, 0x3a, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x12, 0x15, 0x2e,
 	0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x2e,
-	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x0c,
-	0x5a, 0x0a, 0x2e, 0x3b, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x51,
+	0x0a, 0x10, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x72, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x12, 0x21, 0x2e, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x2e, 0x55, 0x73,
+	0x65, 0x72, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65,
+	0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x42, 0x0c, 0x5a, 0x0a, 0x2e, 0x3b, 0x70, 0x72, 0x65, 0x73, 0x65, 0x6e, 0x63, 0x65, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -284,21 +399,25 @@ func file_presence_proto_rawDescGZIP() []byte {
 	return file_presence_proto_rawDescData
 }
 
-var file_presence_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_presence_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_presence_proto_goTypes = []interface{}{
-	(*UserListRequest)(nil),  // 0: presence.UserListRequest
-	(*UserRequest)(nil),      // 1: presence.UserRequest
-	(*UserListResponse)(nil), // 2: presence.UserListResponse
-	(*UserResponse)(nil),     // 3: presence.UserResponse
+	(*UserListRequest)(nil),         // 0: presence.UserListRequest
+	(*UserRequest)(nil),             // 1: presence.UserRequest
+	(*UserRegistrationRequest)(nil), // 2: presence.UserRegistrationRequest
+	(*UserListResponse)(nil),        // 3: presence.UserListResponse
+	(*UserResponse)(nil),            // 4: presence.UserResponse
+	(*StatusResponse)(nil),          // 5: presence.StatusResponse
 }
 var file_presence_proto_depIdxs = []int32{
-	3, // 0: presence.UserListResponse.users:type_name -> presence.UserResponse
+	4, // 0: presence.UserListResponse.users:type_name -> presence.UserResponse
 	0, // 1: presence.Presence.GetUserList:input_type -> presence.UserListRequest
 	1, // 2: presence.Presence.GetUser:input_type -> presence.UserRequest
-	2, // 3: presence.Presence.GetUserList:output_type -> presence.UserListResponse
-	3, // 4: presence.Presence.GetUser:output_type -> presence.UserResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	2, // 3: presence.Presence.UserRegistration:input_type -> presence.UserRegistrationRequest
+	3, // 4: presence.Presence.GetUserList:output_type -> presence.UserListResponse
+	4, // 5: presence.Presence.GetUser:output_type -> presence.UserResponse
+	5, // 6: presence.Presence.UserRegistration:output_type -> presence.StatusResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -335,7 +454,7 @@ func file_presence_proto_init() {
 			}
 		}
 		file_presence_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UserListResponse); i {
+			switch v := v.(*UserRegistrationRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -347,7 +466,31 @@ func file_presence_proto_init() {
 			}
 		}
 		file_presence_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UserListResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_presence_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_presence_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -365,7 +508,7 @@ func file_presence_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_presence_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -393,6 +536,7 @@ const _ = grpc.SupportPackageIsVersion6
 type PresenceClient interface {
 	GetUserList(ctx context.Context, in *UserListRequest, opts ...grpc.CallOption) (*UserListResponse, error)
 	GetUser(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
+	UserRegistration(ctx context.Context, in *UserRegistrationRequest, opts ...grpc.CallOption) (*StatusResponse, error)
 }
 
 type presenceClient struct {
@@ -421,10 +565,20 @@ func (c *presenceClient) GetUser(ctx context.Context, in *UserRequest, opts ...g
 	return out, nil
 }
 
+func (c *presenceClient) UserRegistration(ctx context.Context, in *UserRegistrationRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, "/presence.Presence/UserRegistration", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PresenceServer is the server API for Presence service.
 type PresenceServer interface {
 	GetUserList(context.Context, *UserListRequest) (*UserListResponse, error)
 	GetUser(context.Context, *UserRequest) (*UserResponse, error)
+	UserRegistration(context.Context, *UserRegistrationRequest) (*StatusResponse, error)
 }
 
 // UnimplementedPresenceServer can be embedded to have forward compatible implementations.
@@ -436,6 +590,9 @@ func (*UnimplementedPresenceServer) GetUserList(context.Context, *UserListReques
 }
 func (*UnimplementedPresenceServer) GetUser(context.Context, *UserRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+}
+func (*UnimplementedPresenceServer) UserRegistration(context.Context, *UserRegistrationRequest) (*StatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserRegistration not implemented")
 }
 
 func RegisterPresenceServer(s *grpc.Server, srv PresenceServer) {
@@ -478,6 +635,24 @@ func _Presence_GetUser_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Presence_UserRegistration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserRegistrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PresenceServer).UserRegistration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/presence.Presence/UserRegistration",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PresenceServer).UserRegistration(ctx, req.(*UserRegistrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Presence_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "presence.Presence",
 	HandlerType: (*PresenceServer)(nil),
@@ -489,6 +664,10 @@ var _Presence_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUser",
 			Handler:    _Presence_GetUser_Handler,
+		},
+		{
+			MethodName: "UserRegistration",
+			Handler:    _Presence_UserRegistration_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

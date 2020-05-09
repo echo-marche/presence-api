@@ -17,15 +17,18 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-var _regex_UserListRequest_SystemCode = regexp.MustCompile(`^([ABZ])?$`)
+var _regex_UserListRequest_StatusCode = regexp.MustCompile(`^([ABZ])?$`)
 
 func (this *UserListRequest) Validate() error {
-	if !_regex_UserListRequest_SystemCode.MatchString(this.SystemCode) {
-		return github_com_mwitkow_go_proto_validators.FieldError("SystemCode", fmt.Errorf(`value '%v' must be a string conforming to regex "^([ABZ])?$"`, this.SystemCode))
+	if !_regex_UserListRequest_StatusCode.MatchString(this.StatusCode) {
+		return github_com_mwitkow_go_proto_validators.FieldError("StatusCode", fmt.Errorf(`value '%v' must be a string conforming to regex "^([ABZ])?$"`, this.StatusCode))
 	}
 	return nil
 }
 func (this *UserRequest) Validate() error {
+	return nil
+}
+func (this *UserRegistrationRequest) Validate() error {
 	return nil
 }
 func (this *UserListResponse) Validate() error {
@@ -39,5 +42,8 @@ func (this *UserListResponse) Validate() error {
 	return nil
 }
 func (this *UserResponse) Validate() error {
+	return nil
+}
+func (this *StatusResponse) Validate() error {
 	return nil
 }

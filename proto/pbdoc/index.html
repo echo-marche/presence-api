@@ -179,11 +179,19 @@
             <ul>
               
                 <li>
+                  <a href="#presence.StatusResponse"><span class="badge">M</span>StatusResponse</a>
+                </li>
+              
+                <li>
                   <a href="#presence.UserListRequest"><span class="badge">M</span>UserListRequest</a>
                 </li>
               
                 <li>
                   <a href="#presence.UserListResponse"><span class="badge">M</span>UserListResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#presence.UserRegistrationRequest"><span class="badge">M</span>UserRegistrationRequest</a>
                 </li>
               
                 <li>
@@ -216,6 +224,30 @@
       <p></p>
 
       
+        <h3 id="presence.StatusResponse">StatusResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status_code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="presence.UserListRequest">UserListRequest</h3>
         <p></p>
 
@@ -227,7 +259,7 @@
             <tbody>
               
                 <tr>
-                  <td>system_code</td>
+                  <td>status_code</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -250,7 +282,7 @@
               <tbody>
               
                 <tr>
-                  <td>system_code</td>
+                  <td>status_code</td>
                   <td>
                     <ul>
                     
@@ -291,6 +323,37 @@
 
         
       
+        <h3 id="presence.UserRegistrationRequest">UserRegistrationRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="presence.UserRequest">UserRequest</h3>
         <p></p>
 
@@ -302,7 +365,7 @@
             <tbody>
               
                 <tr>
-                  <td>system_code</td>
+                  <td>status_code</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -378,6 +441,13 @@
                 <td>GetUser</td>
                 <td><a href="#presence.UserRequest">UserRequest</a></td>
                 <td><a href="#presence.UserResponse">UserResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UserRegistration</td>
+                <td><a href="#presence.UserRegistrationRequest">UserRegistrationRequest</a></td>
+                <td><a href="#presence.StatusResponse">StatusResponse</a></td>
                 <td><p></p></td>
               </tr>
             

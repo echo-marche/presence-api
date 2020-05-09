@@ -6,15 +6,21 @@ import "github.com/mwitkow/go-proto-validators/validator.proto";
 service Presence {
   rpc GetUserList (UserListRequest) returns (UserListResponse) {}
   rpc GetUser (UserRequest) returns (UserResponse) {}
+  rpc UserRegistration (UserRegistrationRequest) returns (StatusResponse) {}
 }
 
 message UserListRequest {
-  string system_code = 1 [(validator.field) = {regex: "^([ABZ])?$"}];
+  string status_code = 1 [(validator.field) = {regex: "^([ABZ])?$"}];
 }
 
 message UserRequest {
-  string system_code = 1;
+  string status_code = 1;
   string user_id = 2;
+}
+
+message UserRegistrationRequest {
+  string email = 1;
+  string password = 2;
 }
 
 message UserListResponse {
@@ -24,4 +30,8 @@ message UserListResponse {
 message UserResponse {
   string name = 1;
   string email = 2;
+}
+
+message StatusResponse {
+  string status_code = 1;
 }
