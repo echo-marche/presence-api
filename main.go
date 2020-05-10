@@ -15,8 +15,8 @@ import (
 
 func main() {
 	// DB connection
-	db := infrastructure.NewDb()
-	defer db.Close()
+	dbMap := infrastructure.NewDbMap()
+	defer dbMap.Db.Close()
 
 	// init gRPC server
 	listenPort, err := net.Listen("tcp", ":"+config.GetEnv("API_PORT"))
@@ -31,7 +31,7 @@ func main() {
 			grpc_validator.UnaryServerInterceptor(),
 		)),
 	)
-	presenceServer := &servers.PresenceServer{Db: db}
+	presenceServer := &servers.PresenceServer{DbMap: dbMap}
 	pb.RegisterPresenceServer(server, presenceServer)
 	if err := server.Serve(listenPort); err != nil {
 		log.Fatalf("failed to serve: %v", err)
