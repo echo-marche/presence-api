@@ -53,7 +53,7 @@ func (server *PresenceServer) UserRegistration(ctx context.Context, req *pb.User
 	}
 	tempUser := models.User{
 		Email:              req.Email,
-		EncryptedPassword:  sql.NullString{*(*string)(unsafe.Pointer(&passwordHash)), true},
+		EncryptedPassword:  *(*string)(unsafe.Pointer(&passwordHash)),
 		ConfirmationSentAt: sql.NullTime{time.Now(), true},
 		ConfirmationToken:  sql.NullString{tokenString, true},
 		CreatedAt:          time.Now(),
