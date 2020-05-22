@@ -22,7 +22,7 @@ type PresenceServer struct {
 }
 
 func (server *PresenceServer) Healthz(ctx context.Context, _ *emptypb.Empty) (*pb.HealthzResponse, error) {
-	return &pb.HealthzResponse{ReturnMessage: "presence healthz ok"}, nil
+	return &pb.HealthzResponse{ReturnMessage: "Presence Server healthz ok"}, nil
 }
 
 func (server *PresenceServer) GetUserList(ctx context.Context, req *pb.UserListRequest) (*pb.UserListResponse, error) {
