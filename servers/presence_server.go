@@ -13,11 +13,16 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/emptypb"
 	"gopkg.in/gorp.v2"
 )
 
 type PresenceServer struct {
 	DbMap *gorp.DbMap
+}
+
+func (server *PresenceServer) Healthz(ctx context.Context, _ *emptypb.Empty) (*pb.HealthzResponse, error) {
+	return &pb.HealthzResponse{ReturnMessage: "presence healthz ok"}, nil
 }
 
 func (server *PresenceServer) GetUserList(ctx context.Context, req *pb.UserListRequest) (*pb.UserListResponse, error) {

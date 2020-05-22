@@ -1,12 +1,18 @@
 syntax = "proto3";
 package presence;
 option go_package = ".;presence";
+import "google/protobuf/empty.proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 service Presence {
+  rpc Healthz (google.protobuf.Empty) returns (HealthzResponse) {}
   rpc GetUserList (UserListRequest) returns (UserListResponse) {}
   rpc GetUser (UserRequest) returns (UserResponse) {}
   rpc UserRegistration (UserRegistrationRequest) returns (StatusResponse) {}
+}
+
+message HealthzResponse {
+  string return_message = 1;
 }
 
 message UserListRequest {
